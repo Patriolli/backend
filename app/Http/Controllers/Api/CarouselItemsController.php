@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Models\CarouselItems;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\CarouselItemsRequest;
 
 class CarouselItemsController extends Controller
 {
@@ -29,7 +30,9 @@ class CarouselItemsController extends Controller
      */
     public function show(string $id)
     {
-        //
+       $carouselItem = CarouselItems::findOrFail($id);
+
+       return $carouselItem;
     }
    
     /**
