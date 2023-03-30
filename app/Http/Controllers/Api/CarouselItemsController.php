@@ -20,9 +20,16 @@ class CarouselItemsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CarouselItemsRequest $request)
     {
-        //
+
+        // Retrieve the validated input data...
+        $validated = $request->validated();
+
+        
+        $carouselItem = CarouselItems::create($validated);
+
+        return $carouselItem;
     }
 
     /**
